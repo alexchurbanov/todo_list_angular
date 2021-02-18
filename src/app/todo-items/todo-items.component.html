@@ -1,0 +1,21 @@
+<div class="todo-items" *ngFor="let todo of todos; let i = index">
+  <div class="todo-item" *ngIf="!todo.edit">
+    <span class="todo-name">{{ todo.name }}</span>
+    <div class="todo-buttons">
+      <button class="todo-remove-btn" type="button" (click)="todos.splice(i,1)">
+        <span>Delete Todo</span>
+      </button>
+      <button class="todo-edit-btn" type="button" (click)="todo.edit = true">
+        <span>Edit Todo</span>
+      </button>
+    </div>
+  </div>
+  <div class="todo-edit" *ngIf="todo.edit">
+    <label>
+      <input class="todo-edit-input" [(ngModel)]="todo.name" placeholder="Type new name">
+    </label>
+    <button class="todo-ok-btn" type="button" (click)="todo.edit = false">
+      <span>Ok</span>
+    </button>
+  </div>
+</div>
