@@ -13,4 +13,15 @@ export class TodoItemsComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  saveEdit(todo): void {
+    todo.name = todo.new_name;
+    delete todo.new_name;
+    todo.edit = false;
+  }
+
+  cancelEdit(todo): void {
+    delete todo.new_name;
+    todo.edit = false;
+  }
 }

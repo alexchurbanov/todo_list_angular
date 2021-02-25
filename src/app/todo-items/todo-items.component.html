@@ -12,10 +12,13 @@
   </div>
   <div class="todo-edit" *ngIf="todo.edit">
     <label>
-      <input class="todo-edit-input" [(ngModel)]="todo.name" placeholder="Type new name">
+      <input class="todo-edit-input" [(ngModel)]="todo.new_name" placeholder="{{todo.name}}">
     </label>
-    <button class="todo-ok-btn" type="button" (click)="todo.edit = false">
+    <button class="todo-ok-btn" type="button" (click)="saveEdit(todo)">
       <span>Ok</span>
+    </button>
+    <button class="todo-cancel-btn" type="button" (click)="cancelEdit(todo)">
+      <span>Cancel</span>
     </button>
   </div>
 </div>
