@@ -3,9 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { TodoFormComponent } from './todo-form/todo-form.component';
-import { TodoItemsComponent } from './todo-items/todo-items.component';
+import { AppComponent } from './components/app-component/app.component';
+import { TodoFormComponent } from './components/todo-form/todo-form.component';
+import { TodoItemsComponent } from './components/todo-items/todo-items.component';
 
 @NgModule({
   declarations: [
