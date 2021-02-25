@@ -8,7 +8,7 @@ import {v4 as uuidv4} from 'uuid';
   styleUrls: ['./todo-form.component.sass']
 })
 export class TodoFormComponent implements OnInit {
-  @Input() todos: any;
+  @Input() todos: Array<{ id: string, name: string }>;
   todoForm = new FormGroup({
     todoName: new FormControl(''),
   });
