@@ -1,8 +1,8 @@
-<form class="todo-form">
+<form class="todo-form" [formGroup]="todoForm" (ngSubmit)="onSubmit()">
   <label>
-    <input class="todo-form-input" [(ngModel)]="todoName" name="name" placeholder="Type task name">
+    <input class="todo-form-input" formControlName="todoName" placeholder="Type task name" required="">
   </label>
-  <button class="todo-form-button" (click)="onSubmit()">
+  <button type="submit" class="todo-form-button" [disabled]="!todoForm.valid">
     <span>Add ToDo</span>
   </button>
 </form>

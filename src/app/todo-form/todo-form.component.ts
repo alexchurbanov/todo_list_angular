@@ -1,4 +1,5 @@
 import {Component, OnInit, Input} from '@angular/core';
+import {FormGroup, FormControl} from '@angular/forms';
 import {v4 as uuidv4} from 'uuid';
 
 @Component({
@@ -7,8 +8,10 @@ import {v4 as uuidv4} from 'uuid';
   styleUrls: ['./todo-form.component.sass']
 })
 export class TodoFormComponent implements OnInit {
-  todoName: string;
   @Input() todos: any;
+  todoForm = new FormGroup({
+    todoName: new FormControl(''),
+  });
 
   constructor() {
   }
@@ -17,12 +20,11 @@ export class TodoFormComponent implements OnInit {
   }
 
   onSubmit(): void {
-    if (!this.todoName) {
-      return alert('Name can\'t be empty');
+    if (!this.todoForm.valid) {
+      return alert('There must be name');
     }
-    this.todos.push({id: uuidv4(), name: this.todoName});
-    this.todoName = '';
-    console.log(this.todos);
+    this.todos.push({id: uuidv4(), name: this.todoForm.value.todoName});
+    this.todoForm.setValue({todoName: ''});
   }
 
 }
