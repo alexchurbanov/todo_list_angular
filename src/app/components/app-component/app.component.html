@@ -1,3 +1,5 @@
 <app-todo-form [todos]="todos"></app-todo-form>
-<app-todo-items [todos]="todos"></app-todo-items>
+<app-todo-items [todos]="todos" cdkDropList (cdkDropListDropped)="drop($event)"
+                [cdkDropListSortPredicate]="sortPredicate">>
+</app-todo-items>
 <router-outlet></router-outlet>

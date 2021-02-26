@@ -1,11 +1,12 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './components/app-component/app.component';
-import { TodoFormComponent } from './components/todo-form/todo-form.component';
-import { TodoItemsComponent } from './components/todo-items/todo-items.component';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './components/app-component/app.component';
+import {TodoFormComponent} from './components/todo-form/todo-form.component';
+import {TodoItemsComponent} from './components/todo-items/todo-items.component';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -13,13 +14,15 @@ import { TodoItemsComponent } from './components/todo-items/todo-items.component
     TodoFormComponent,
     TodoItemsComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        FormsModule,
-        ReactiveFormsModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    DragDropModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

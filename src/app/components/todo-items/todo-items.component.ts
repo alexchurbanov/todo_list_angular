@@ -24,4 +24,8 @@ export class TodoItemsComponent implements OnInit {
     delete todo.new_name;
     todo.edit = false;
   }
+
+  checkTodo(todo): void {
+    todo.checked = !todo.checked;
+  }
 }
