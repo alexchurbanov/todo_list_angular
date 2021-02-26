@@ -1,4 +1,5 @@
 import {Component, OnInit, Input} from '@angular/core';
+import {moveItemInArray} from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-todo-items',
@@ -25,7 +26,8 @@ export class TodoItemsComponent implements OnInit {
     todo.edit = false;
   }
 
-  checkTodo(todo): void {
+  checkTodo(todo, index): void {
     todo.checked = !todo.checked;
+    moveItemInArray(this.todos, index, 0);
   }
 }
