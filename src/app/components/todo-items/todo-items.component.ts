@@ -1,5 +1,6 @@
 import {Component, OnInit, Input} from '@angular/core';
 import {moveItemInArray} from '@angular/cdk/drag-drop';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-todo-items',
@@ -8,6 +9,9 @@ import {moveItemInArray} from '@angular/cdk/drag-drop';
 })
 export class TodoItemsComponent implements OnInit {
   @Input() todos: any;
+  todoForm = new FormGroup({
+    todoNewName: new FormControl('', Validators.required),
+  });
 
   constructor() {
   }
@@ -16,13 +20,16 @@ export class TodoItemsComponent implements OnInit {
   }
 
   saveEdit(todo): void {
-    todo.name = todo.new_name;
-    delete todo.new_name;
+    if (!this.todoForm.valid) {
+      return alert('There must be name');
+    }
+    todo.name = this.todoForm.value.todoNewName;
+    this.todoForm.setValue({todoNewName: ''});
     todo.edit = false;
   }
 
   cancelEdit(todo): void {
-    delete todo.new_name;
+    this.todoForm.setValue({todoNewName: ''});
     todo.edit = false;
   }
 

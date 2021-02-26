@@ -1,5 +1,5 @@
 import {Component, OnInit, Input} from '@angular/core';
-import {FormGroup, FormControl} from '@angular/forms';
+import {FormGroup, FormControl, Validators} from '@angular/forms';
 import {v4 as uuidv4} from 'uuid';
 
 @Component({
@@ -10,7 +10,7 @@ import {v4 as uuidv4} from 'uuid';
 export class TodoFormComponent implements OnInit {
   @Input() todos: Array<{ id: string, name: string }>;
   todoForm = new FormGroup({
-    todoName: new FormControl(''),
+    todoName: new FormControl('', Validators.required),
   });
 
   constructor() {
