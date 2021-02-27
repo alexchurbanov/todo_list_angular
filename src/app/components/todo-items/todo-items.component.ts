@@ -1,5 +1,4 @@
 import {Component, OnInit, Input} from '@angular/core';
-import {moveItemInArray} from '@angular/cdk/drag-drop';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
@@ -33,8 +32,7 @@ export class TodoItemsComponent implements OnInit {
     todo.edit = false;
   }
 
-  checkTodo(todo, index): void {
+  checkTodo(todo): void {
     todo.checked = !todo.checked;
-    moveItemInArray(this.todos, index, 0);
   }
 }

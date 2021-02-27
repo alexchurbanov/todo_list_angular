@@ -1,6 +1,6 @@
-<div class="todo-items" *ngFor="let todo of todos; let i = index" cdkDrag [cdkDragDisabled]="todo.checked"
+<div class="todo-items" *ngFor="let todo of todos; let i = index" cdkDrag [cdkDragDisabled]="todo.checked || todo.edit"
      [cdkDragData]="todos">
-  <div class="todo-item" *ngIf="!todo.edit" (click)="checkTodo(todo, i)" [ngClass]="todo.checked ? 'checked' : ''">
+  <div class="todo-item" *ngIf="!todo.edit" (click)="checkTodo(todo)" [ngClass]="todo.checked ? 'checked' : ''">
     <span class="todo-name">{{ todo.name }}</span>
     <div class="todo-buttons">
       <button class="todo-remove-btn" type="button" (click)="todos.splice(i,1)">
