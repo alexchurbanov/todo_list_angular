@@ -1,4 +1,4 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
@@ -6,8 +6,8 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
   templateUrl: './todo-items.component.html',
   styleUrls: ['./todo-items.component.sass']
 })
-export class TodoItemsComponent implements OnInit {
-  @Input() todos: any;
+export class TodoItemsComponent {
+  @Input() todos: Array<{ id: string, name: string }>;
   todoForm = new FormGroup({
     todoNewName: new FormControl('', Validators.required),
   });
@@ -15,12 +15,9 @@ export class TodoItemsComponent implements OnInit {
   constructor() {
   }
 
-  ngOnInit(): void {
-  }
-
   saveEdit(todo): void {
     if (!this.todoForm.valid) {
-      return alert('There must be name');
+      return alert('There must be name!');
     }
     todo.name = this.todoForm.value.todoNewName;
     this.todoForm.setValue({todoNewName: ''});
