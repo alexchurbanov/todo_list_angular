@@ -1,0 +1,11 @@
+<form class="todo-edit" (ngSubmit)="editTodo()">
+  <label>
+    <input class="todo-edit-input" [(ngModel)]="newName" name="newName" placeholder="" required>
+  </label>
+  <button class="todo-ok-btn" type="submit">
+    <span>Ok</span>
+  </button>
+  <button class="todo-cancel-btn" type="button" (click)="cancel()">
+    <span>Cancel</span>
+  </button>
+</form>

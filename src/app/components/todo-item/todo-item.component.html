@@ -1,0 +1,12 @@
+<div class="todo-item" (click)="checkTodo()" [ngClass]="todo.checked ? 'checked' : ''">
+  <span class="todo-name">{{todo.name}}</span>
+  <div class="todo-buttons">
+    <button class="todo-remove-btn" type="button" (click)="deleteTodo()">
+      <span>Delete Todo</span>
+    </button>
+    <button class="todo-edit-btn" type="button" (click)="markForEdit()" [disabled]="todo.checked">
+      <span>Edit Todo</span>
+    </button>
+  </div>
+</div>
+
