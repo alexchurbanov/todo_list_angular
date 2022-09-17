@@ -26,5 +26,3 @@ export class TodoItemComponent {
     this.todoService.editTodo(this.todo);
   }
 }
-
-

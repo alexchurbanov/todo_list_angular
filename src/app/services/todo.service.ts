@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { v4 as uuidv4 } from 'uuid';
 
 export interface Todo {
   checked?: boolean;
@@ -21,8 +22,12 @@ export class TodoService {
     this.todoSource.next(newValue);
   }
 
-  addTodo(todo: Todo) {
-    const newTodos = [...this.todos, todo];
+  addTodo(todoName: string) {
+    const newTodo: Todo = {
+      id: uuidv4(),
+      name: todoName
+    };
+    const newTodos = [...this.todos, newTodo];
     this.setTodos(newTodos);
   }
 

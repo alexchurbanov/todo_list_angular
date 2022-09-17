@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { v4 as uuidv4 } from 'uuid';
-import { Todo, TodoService } from '../../services/todo.service';
+import { TodoService } from '../../services/todo.service';
 
 @Component({
   selector: 'app-add-todo-form',
@@ -16,12 +15,7 @@ export class AddTodoFormComponent {
 
   createTodo() {
     if (!this.name.trim()) return alert('Name is required');
-    const newTodo: Todo = {
-      id: uuidv4(),
-      name: this.name
-    };
-    this.todoService.addTodo(newTodo);
+    this.todoService.addTodo(this.name);
     this.name = '';
   }
-
 }
