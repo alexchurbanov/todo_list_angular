@@ -1,5 +1,5 @@
-<div class="todo-items" *ngFor="let todo of todos" cdkDrag [cdkDragDisabled]="todo.checked || todo.edit"
-     [cdkDragData]="todos">
+<div class="todo-items" *ngFor="let todo of todos$ | async" cdkDrag [cdkDragDisabled]="todo.checked || todo.edit"
+     [cdkDragData]="todos$">
   <app-todo-item [todo]="todo" *ngIf="!todo.edit"></app-todo-item>
   <app-edit-todo-form [todo]="todo" *ngIf="todo.edit"></app-edit-todo-form>
 </div>
