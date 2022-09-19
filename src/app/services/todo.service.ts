@@ -13,6 +13,7 @@ export interface Todo {
 export class TodoService {
   private readonly todoSource$: BehaviorSubject<Todo[]>;
   readonly todos$: Observable<Todo[]>;
+  private readonly TODOS_KEY = 'TODOS';
 
   constructor() {
     this.todoSource$ = new BehaviorSubject<Todo[]>(this.getData());
@@ -29,12 +30,12 @@ export class TodoService {
   }
 
   private saveData(data: Todo[]): void {
-    if (!data.length) return localStorage.clear();
-    localStorage.setItem('Todos', JSON.stringify(data));
+    if (!data.length) return localStorage.removeItem(this.TODOS_KEY);
+    localStorage.setItem(this.TODOS_KEY, JSON.stringify(data));
   }
 
   private getData(): Todo[] {
-    const data = localStorage.getItem('Todos');
+    const data = localStorage.getItem(this.TODOS_KEY);
     return data ? JSON.parse(data) : [];
   }
 
