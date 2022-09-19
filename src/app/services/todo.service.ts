@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { v4 as uuidv4 } from 'uuid';
 
 export interface Todo {
@@ -11,15 +11,31 @@ export interface Todo {
 
 @Injectable({providedIn: 'root'})
 export class TodoService {
-  private todoSource = new BehaviorSubject<Todo[]>([]);
-  readonly todos$ = this.todoSource.asObservable();
+  private readonly todoSource$: BehaviorSubject<Todo[]>;
+  readonly todos$: Observable<Todo[]>;
+
+  constructor() {
+    this.todoSource$ = new BehaviorSubject<Todo[]>(this.getData());
+    this.todos$ = this.todoSource$.asObservable();
+  }
 
   get todos(): Todo[] {
-    return this.todoSource.getValue();
+    return this.todoSource$.getValue();
   }
 
   private setTodos(newValue: Todo[]): void {
-    this.todoSource.next(newValue);
+    this.saveData(newValue);
+    this.todoSource$.next(newValue);
+  }
+
+  private saveData(data: Todo[]): void {
+    if (!data.length) return localStorage.clear();
+    localStorage.setItem('Todos', JSON.stringify(data));
+  }
+
+  private getData(): Todo[] {
+    const data = localStorage.getItem('Todos');
+    return data ? JSON.parse(data) : [];
   }
 
   addTodo(todoName: string) {
