@@ -1,4 +1,4 @@
-<div class="todo-item" (click)="checkTodo()" [ngClass]="todo.checked ? 'checked' : ''">
+<div class="todo-item" (click)="checkTodo($event)" [ngClass]="todo.checked ? 'checked' : ''">
   <span class="todo-name">{{todo.name}}</span>
   <div class="todo-buttons">
     <button class="todo-remove-btn" type="button" (click)="deleteTodo()">

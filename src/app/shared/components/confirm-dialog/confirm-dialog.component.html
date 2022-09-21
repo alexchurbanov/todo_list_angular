@@ -1,0 +1,5 @@
+<p>{{data.message}}</p>
+<div class="two-buttons">
+  <button (click)="dialogRef.close(true)">{{data.confirmCaption || "Yes"}}</button>
+  <button (click)="dialogRef.close(false)">{{data.cancelCaption || "No"}}</button>
+</div>

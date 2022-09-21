@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Todo, TodoService } from '../../services/todo.service';
+import { InfoDialogComponent } from '../../shared/components/info-dialog/info-dialog.component';
+import { Dialog } from '@angular/cdk/dialog';
 
 @Component({
   selector: 'app-edit-todo-form',
@@ -10,7 +12,7 @@ export class EditTodoFormComponent implements OnInit {
   @Input() todo!: Todo;
   newName!: string;
 
-  constructor(private todoService: TodoService) {
+  constructor(private todoService: TodoService, private dialog: Dialog) {
   }
 
   ngOnInit(): void {
@@ -23,7 +25,12 @@ export class EditTodoFormComponent implements OnInit {
   }
 
   editTodo() {
-    if (!this.newName.trim()) return alert('New name is required');
+    this.newName = this.newName.trim();
+    if (!this.newName) {
+      const dialogRef = this.dialog.open<boolean>(InfoDialogComponent, {data: {message: 'Name is required!'}});
+      dialogRef.closed.subscribe({});
+      return;
+    }
     this.todo.name = this.newName;
     this.todo.edit = false;
     this.todoService.editTodo(this.todo);

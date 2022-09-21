@@ -1,7 +1,6 @@
 <form class="todo-form" (ngSubmit)="createTodo()">
   <label class="todo-label"> Todo name (1-25 characters):
-    <input class="todo-form-input" [(ngModel)]="name" name="todoName" placeholder="Todo name" required="true"
-           maxlength="25">
+    <input class="todo-form-input" [(ngModel)]="name" name="todoName" placeholder="Todo name" required maxlength="25">
   </label>
   <button type="submit" class="todo-form-button" [disabled]="!name">
     <span>Add ToDo</span>

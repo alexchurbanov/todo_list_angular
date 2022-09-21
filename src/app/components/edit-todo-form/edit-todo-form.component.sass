@@ -26,9 +26,8 @@
 
   &:disabled
     cursor: not-allowed
-
-.todo-ok-btn
-  margin-left: 15px
+  &:disabled > img
+    filter: grayscale(100%)
 
 .todo-edit-input
   width: settings.$form-width

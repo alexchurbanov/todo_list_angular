@@ -8,6 +8,7 @@ import { TodoListComponent } from "./components/todo-list/todo-list.component";
 import { DragDropModule } from "@angular/cdk/drag-drop";
 import { TodoItemComponent } from "./components/todo-item/todo-item.component";
 import { EditTodoFormComponent } from "./components/edit-todo-form/edit-todo-form.component";
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -18,9 +19,10 @@ import { EditTodoFormComponent } from "./components/edit-todo-form/edit-todo-for
     EditTodoFormComponent,
   ],
   imports: [
-    FormsModule,
     BrowserModule,
-    DragDropModule
+    FormsModule,
+    DragDropModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
