@@ -32,9 +32,7 @@ export class TodoItemComponent {
     this.todoService.editTodo(this.todo);
   }
 
-  checkTodo(event: Event) {
-    if (event.target !== event.currentTarget) return;
-    this.todo.checked = !this.todo.checked;
+  checkTodo() {
     this.todoService.editTodo(this.todo);
   }
 }

@@ -52,3 +52,32 @@
     background: #7d0c1f
     animation: strike 0.5s
     content: ''
+
+.todo-checkbox
+  position: absolute
+  z-index: -1
+  opacity: 0
+
+.todo-checkbox-label
+  display: inline-flex
+  align-items: center
+  user-select: none
+
+.todo-checkbox-label::before
+  z-index: 1
+  content: ''
+  display: inline-block
+  width: 1em
+  height: 1em
+  flex-shrink: 0
+  flex-grow: 0
+  border: 2px solid #5d0cff
+  border-radius: 0.25em
+  margin-right: 0.5em
+  background-repeat: no-repeat
+  background-position: center center
+  background-size: 50% 50%
+
+.todo-checkbox:checked + .todo-checkbox-label::before
+  background-color: #9b00fa
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e")

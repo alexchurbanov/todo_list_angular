@@ -1,33 +1,28 @@
 @use '../../styles/settings' as settings
 
 .todo-edit
-  display: flex
-  justify-content: space-between
-  align-items: center
-  color: #fff
-  padding: 16px
-  border-radius: 5px
-  width: 90%
-  font-weight: 400
-  margin: 4px auto 10px
-
-.todo-buttons
   display: grid
   grid-template-columns: 1fr 1fr
-  grid-gap: 10px
 
 
 .todo-ok-btn, .todo-cancel-btn
   padding: 5px
-  width: 40px
-  height: 40px
+  width: 50px
+  height: 50px
   background: transparent
   border: none
+  font-size: 30px
+
+.todo-ok-btn
+  color: #02a202
 
   &:disabled
     cursor: not-allowed
-  &:disabled > img
-    filter: grayscale(100%)
+    color: gray
+
+.todo-cancel-btn
+  color: #8d0404
 
 .todo-edit-input
   width: settings.$form-width
+  margin-left: 10px

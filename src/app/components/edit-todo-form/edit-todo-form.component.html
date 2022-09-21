@@ -3,11 +3,11 @@
     <input class="todo-edit-input" [(ngModel)]="newName" name="newName" placeholder="" required="true" maxlength="25">
   </label>
   <div class="todo-buttons">
-    <button class="todo-ok-btn" type="submit" [disabled]="!newName">
-      <img src="/assets/icons/confirm.svg" alt="Confirm" title="Confirm">
+    <button class="todo-ok-btn" type="submit" title="Confirm" [disabled]="!newName">
+      <i class="fa fa-check"></i>
     </button>
-    <button class="todo-cancel-btn" type="button" (click)="cancel()">
-      <img src="/assets/icons/cancel.svg" alt="Cancel" title="Cancel">
+    <button class="todo-cancel-btn" type="button" title="Cancel" (click)="cancel()">
+      <i class="fa fa-times"></i>
     </button>
   </div>
 </form>
