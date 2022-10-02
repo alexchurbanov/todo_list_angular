@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { Todo, TodoService } from '../../services/todo.service';
-import { Observable } from 'rxjs';
+import { Todos$, TodoService } from '../../services/todo.service';
 
 @Component({
   selector: 'app-todo-list',
@@ -8,7 +7,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./todo-list.component.sass'],
 })
 export class TodoListComponent {
-  todos$: Observable<Todo[]>;
+  todos$: Todos$;
 
   constructor(private todoService: TodoService) {
     this.todos$ = todoService.todos$;

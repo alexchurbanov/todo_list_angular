@@ -9,6 +9,7 @@ import { DragDropModule } from "@angular/cdk/drag-drop";
 import { TodoItemComponent } from "./components/todo-item/todo-item.component";
 import { EditTodoFormComponent } from "./components/edit-todo-form/edit-todo-form.component";
 import { SharedModule } from './shared/shared.module';
+import { ProgressBarComponent } from './components/progress-bar/progress-bar.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { SharedModule } from './shared/shared.module';
     TodoListComponent,
     TodoItemComponent,
     EditTodoFormComponent,
+    ProgressBarComponent
   ],
   imports: [
     BrowserModule,

@@ -9,10 +9,12 @@ export interface Todo {
   name: string;
 }
 
+export type Todos$ = Observable<Todo[]>
+
 @Injectable({providedIn: 'root'})
 export class TodoService {
   private readonly todoSource$: BehaviorSubject<Todo[]>;
-  readonly todos$: Observable<Todo[]>;
+  readonly todos$: Todos$;
   private readonly TODOS_KEY = 'TODOS';
 
   constructor() {

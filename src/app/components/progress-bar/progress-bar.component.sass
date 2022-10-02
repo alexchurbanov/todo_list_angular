@@ -1,0 +1,29 @@
+@import '../../styles/settings'
+
+$progress-height: 20px
+
+\:host
+  height: $progress-height
+  margin: 10px 10px 0
+
+.progress-container
+  position: relative
+  background-color: transparent
+  border: 1px solid #5d0cff
+  border-radius: 5px
+  height: $progress-height
+
+.progress-bar
+  position: absolute
+  top: 0
+  left: 0
+  background-color: #9b00fa
+  border-radius: 3px
+  transition: width 0.5s ease-in-out
+  height: $progress-height
+
+.progress-value
+  position: relative
+  z-index: 1
+  font-size: 12px
+  padding-right: 50px
